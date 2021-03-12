@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar color='secondary'>
+    <ion-title style="text-align:center;color:black;">
+      <h3>สถานการณ์ล่าสุด</h3>
+    </ion-title>
+    <ion-buttons class="ref" slot="end">
+      <ion-button (click)="getData()">
+        <ion-icon slot="start" name="refresh"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div style="text-align: center; ">
+       <h2>Covid-19 ในประเทศไทย</h2>
+    </div>
+
+    <div>
+      <ion-card color="medium">
+        <h3 style="text-align:center;">ผู้ติดเชื้อสะสม</h3>
+        <h2 style="text-align:center;">{{Confirmed}} คน</h2>
+      </ion-card>
+    </div>
+
+    <ion-grid>
+    <ion-row>
+        <ion-col>
+          <ion-card color="primary">
+            <h4 style="text-align:center;">รักษาหายแล้ว</h4>
+            <p style="text-align:center;">{{Recovered}}  </p>
+            <p style="text-align:center;">(+{{NewRecovered  | number}})  </p>
+          </ion-card>
+        </ion-col>
+        <ion-col>
+          <ion-card color="warning">
+            <h4 style="text-align:center;">กำลังรักษา</h4>
+            <h6 style="text-align:center;">{{Hospitalized }}  </h6>
+            <h6 style="text-align:center;">(+{{NewHospitalized | number}})  </h6>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid>
+      <ion-row>
+        <ion-col size = '3'>         
+        </ion-col>
+        <ion-col size = '6'>
+          <ion-card color="danger">
+            <h4 style="text-align:center;">เสียชีวิต</h4>
+            <p style="text-align:center;">{{Deaths}}  </p>
+            <p style="text-align:center;">(+{{NewDeaths  | number}}) </p>
+          </ion-card>
+        </ion-col>
+        <ion-col size = '3'>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+   <p>
+      <ion-card color='dark'>
+        <p style="text-align:center;"> อัพเดทข้อมูลล่าสุด {{showDate}} </p>
+      </ion-card>
+   </p>
+   
+
+      
+    
+    
+</ion-content>

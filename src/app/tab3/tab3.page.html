@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title >
+      <ion-title style="text-align:center;color:black;">
+      <h3> Covid-19 ในแต่ละประเทศ </h3>
+    </ion-title>
+    </ion-title>
+    <ion-buttons class="ref" slot="end">
+      <ion-button (click)="getData()">
+        <ion-icon slot="start" name="refresh"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar aria-placeholder="ระบุชื่อประเทศ" (ionInput)="filterData($event)"></ion-searchbar>
+  <ion-list-header>
+    <h6>Upadated: {{updateData |date: 'dd/MM/yyyy'}}</h6>
+  </ion-list-header>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor ="let item of allData">
+      <ion-thumbnail slot="start">
+        <img src="http://www.geognos.com/api/en/countries/flag/{{item.CountryCode}}.png" 
+        alt="">
+      </ion-thumbnail>
+      <ion-label>
+        <h3> {{item.Country}} </h3>
+        <p> ผู้ติดเชื้อ: {{item.TotalConfirmed | number}} (+{{item.NewConfirmed}}) </p>
+        <p> รักษาหาย: {{item.TotalRecovered | number}} (+{{item.NewRecovered}}) </p>
+        <p> ผู้เสียชีวิต: {{item.TotalDeaths | number}} (+{{item.NewDeaths}}) </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
